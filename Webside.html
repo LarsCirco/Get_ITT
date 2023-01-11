@@ -11,8 +11,18 @@
 </head>
 
 <body>
-
-<h1> Hei, mitt navn er Lars</h1>
+<div class="Meny">
+  <a href="Hjem">Hjem</a>
+  <a href="Hobbier">Hobbier</a>
+  <a href="Bilder">Bilder</a>
+  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="subTitleGlow"><strong>Dagbok</strong></a>
+  <a href="Om Meg">Om Meg</a>
+  <a href="Games">Games</a>
+  <a><button id="min-knapp" style="border-radius: 59px; width: 1350px; height: 25px;  ">Bytt bakgrunns farge!</button></a>
+  
+</div>
+<br><br>
+<h1 class="glow"> Hei, mitt navn er Lars </h1>
 <div class="Liste">
 <ul> <h3>Min hobbyer er:</h3>
         <li id="l1"> Gaming </li>
@@ -20,20 +30,29 @@
         <li id="l3"> Musikk </li>
         <li id="l4"> Lære meg nye ting </li>
 </ul>
-<button id="min-knapp">Bytt bakgrunns farge!</button>
+
+
 
 <script>
   const button = document.getElementById('min-knapp');
 
   button.addEventListener('click', () => {
-    const r = Math.floor(Math.random() * 256); // mathfloor, runder alltid ned så det ikke er float, math random er ett tall fra 0 til 1. psuedo random.
+    const r = Math.floor(Math.random() * 256); // mathfloor, runder alltid ned eller opp så det ikke er float, math random er ett tall fra 0 til 1. psuedo random.
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
     const color = 'rgb(' + r + ', ' + g + ', ' + b + ')'; // rgb er funksjon for css i css hadde det sett slik ut, document.body.style.color = 'rgb(128,128,123)';
-    console.log(color);
+    console.log(color)
     document.body.style.backgroundColor = color; // 
+    
   });
+
+
+
+
+
+
 </script>
+
 
 
 </div>
