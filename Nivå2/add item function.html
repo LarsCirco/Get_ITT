@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="itemInput">
+    <button id="item1" onclick="addToInventory()">Add item i arraye</button>
+    <button id="show" onclick="showarray();">Hvis handle liste</button>'
+    <ul id="inventory">inventory</ul>
+    <script>
+    
+    var inventory = []; //create an empty array to hold the inventory items
+
+    function addToInventory(item) {
+    var item = document.getElementById("itemInput").value;
+    inventory.push(item); //add the item to the inventory array
+    console.log(inventory);
+    return inventory; //return the updated inventory array
+    }
+
+    function showarray() {
+    var inventoryList= document.getElementById("inventory");
+    for(var i = 0; i < inventory.length; i++) {
+        var item = inventory[i];
+        var li = document.createElement("li");
+        li.innerHTML = item;
+        inventoryList.appendChild(li);
+    }
+}
+
+
+
+
+
+    
+    </script>
+</body>
+</html>
