@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="trafikklys">
+    <div id="Grønn"  onclick="lyspå(this)" class ="Grønn"></div>
+    <div id="Orange" onclick="lyspå(this)" class ="Orange"></div>
+    <div id="Rødt" onclick="lyspå(this)" class ="Rødt"></div> </div>
+
+<script>
+let farger = document.querySelectorAll('.Grønn, .Orange, .Rødt');
+let lyset = 0;
+
+function lyspå(){
+    farger[lyset].style.opacity = "100%";
+    for (let i = 0; i < farger.length; i++) {
+        if (i != lyset) {
+            farger[i].style.opacity = "10%";
+        }
+    }
+    lyset = (lyset + 1) % farger.length;  //Evig loop hver gang lyset = 2 så starter det på nytt på 0.
+    setTimeout(lyspå, 300);
+    
+    //lyset = 0 +1 = 1 % 3 = 1
+    //lyset = 1 +1 = 2 % 3 = 2 / 3 = 0, 0*3 +2 = 2;
+    //lyset = 2+ 1 = 3%3 = 0
+    //lyset = 0 + 1 = (1 / 3= 0) 3*0+1 = 1
+    
+    console.log(lyset);
+   
+}
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+
+.trafikklys{
+            width: 310px;
+            height: 700px;
+            background-color: black;
+            border-radius: 100px;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            padding: 15px;
+            margin-left: 45%;
+            margin-top: 8%;
+            
+}
+.Grønn {
+    background: Green;
+    border-radius:50%;
+    width: 100px;
+    height: 100px;
+    border-style: groove;
+    opacity: 10%;
+}
+.Orange {
+    background: orange;
+    border-radius:50%;
+    width: 100px;
+    height: 100px;
+    border-style: groove;
+    opacity: 10%;
+
+    
+}
+.Rødt {
+background: red;
+border-radius: 50%;
+width:100px;
+height: 100px;
+border-style: groove;
+opacity: 10%;
+
+
+
+
+}
+
+</style>
+</html>

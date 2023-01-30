@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variabel oppgave</title>
+    <style>
+        .colorblock {
+            height: 30px;
+            width: 100px;
+            border: 1px solid black;
+            float: left;
+            margin: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2vw;
+        }
+        .selectedDiv {
+            border: 2px dashed rgb(18, 18, 18);
+            align-items: flex-start;
+            grid-column: flex;
+            grid-row: flex;
+            grid-template-rows: flex;
+            text-align:center;
+        }
+        
+    </style>
+</head>
+<div id="chosenColorDiv"></div>
+<br>
+<div class="colorblock" onclick="chooseColor(this.innerHTML)" style="background-color:#4DB5F4;">#4DB5F4</div>
+<div class="colorblock" onclick="chooseColor(this.innerHTML)" style="background-color:#4D4D;">#4D4D</div>
+<div class="colorblock" onclick="chooseColor(this.innerHTML)" style="background-color:#4455;">#4455</div>
+<br>
+<button onclick="setBKGcolor()">Set Background</button>
+<br><br>
+<div class="selectedDiv" onclick="selectedDiv(this)">Select Me!</div>
+<div class="selectedDiv" onclick="selectedDiv(this)">...or me!</div>
+
+<script>
+    const chosenColorDiv = document.getElementById('chosenColorDiv');
+    let chosenColor = "";
+    let choosenDiv = document.getElementById('chosenColorDiv');
+
+    function chooseColor(chosenHEX){
+        console.log(chosenHEX);
+        chosenColor = chosenHEX;
+        chosenColorDiv.innerHTML = `Du har valgt fargekode: ${chosenHEX}`;
+        chosenColorDiv.style.backgroundColor = chosenHEX;
+    }
+    function selectedDiv(clickedDiv){
+        choosenDiv.classList.remove("selectedDiv");
+        choosenDiv = clickedDiv;
+        choosenDiv.classList.toggle("selectedDiv");
+        clickedDiv.style.backgroundColor = chosenColor;
+    }
+    function setBKGcolor(){
+        document.body.style.backgroundColor = chosenColor;
+    }
+</script>
+
+
+</div>
+
+<body>
+</html>

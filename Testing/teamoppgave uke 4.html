@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team4 teamoppgave uke4</title>
+</head>
+<body>
+    
+    
+<h1>Plante team4</h1>
+
+<div id="plant" class="Plant"></div>
+<div id="vann" class="Plant"></div>
+<div id="sol" class="plant"></div>
+<div id="vekst" class="Plant"></div>
+<div id="money"></div>
+
+
+
+    <br>
+    
+    <button onclick="vanneplante()">Vann</button>
+    <button onclick="veksthormon()">Gjødsel</button>
+    <button onclick="sunnyday()">Sol</button>
+<br><br><br><br><br><br><br><br>
+<button onclick ="Playgame()">Start Game</button>
+<button onclick ="Pausegame()">Pause Game</button>
+    
+    
+    
+<script>
+let verdi1 = 30;
+let verdi2 = 40;
+let verdi3 = 50;
+let vann= document.getElementById('vann');
+let sol= document.getElementById('sol');
+let vekst= document.getElementById('vekst');
+let trekker;
+let cashMoneyFlow;
+let cash = 100;
+
+// Globalt variabler: StartTid 
+
+function Playgame(){
+    trekker = setInterval(TrekkerIFraSekunder,800);
+    cashMoneyFlow = setInterval(valuta,300);
+
+}
+function TrekkerIFraSekunder(){
+    vann.innerHTML = 'vann >>>  =  '  + verdi1;
+    sol.innerHTML = 'gjødsel >>>  = '  + verdi2;
+    vekst.innerHTML = 'sol >>> =  '  + verdi3;
+    verdi--;
+    verdi1--;
+    verdi2--;
+}
+function Pausegame(){
+    clearInterval(trekker);
+
+}
+function vanneplante(){
+    verdi1++; 
+}
+function veksthormon(){
+    verdi2++;
+    cash -= 2;
+    
+}
+function sunnyday(){
+    verdi3++;
+}
+function valuta (){
+
+    cash+=3;
+    document.getElementById('money').innerHTML = `Cash >>> ${cash} `;
+}
+</script>
+
+
+</body>
+</html>

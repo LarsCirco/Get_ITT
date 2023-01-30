@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+
+
+    <div>
+    <br><br><br>
+    <button onclick="start()"> Start </button>
+    <button onclick="stopp()" > Reset </button>
+    <button onclick="pause()" > Pause </button>
+    <button onclick="runde.innerHTML = '';">Fjernliste</button>
+    </div>
+    <div id="klokke" class="klokkedisplay"></div> <div id="runde"></div>
+</body>
+
+
+<script>
+const tid=document.getElementById('klokke');
+let runde = document.getElementById('runde');
+let sekunder = 0;
+let pausetid = 0;
+let stopper;
+let startet = false;
+
+function start(){ //Ja, 
+if (startet) // Sjekker om startet er Sant, hvis det er det så return og avslutter videre delen av koden.
+{ return;
+} else {
+    startet = true; // siden jeg har satt startet til false så vil den gå videre i koden og forbi else statement, og den vil si at startet = true for å oppfylle kravet til Ifen 
+}/**/
+   
+    sekunder = pausetid;
+    stopper = setInterval(tellsekunder, 1000);
+    
+
+
+}
+
+function tellsekunder(){
+    tid.innerHTML = sekunder;
+    sekunder++;
+}
+
+function stopp(){
+
+    startet = false; // oppdatere startet verdi
+    sekunder = 0;// oppdaterer pause verdien til 0 så det starter på 0 når jeg trykker start
+    pausetid = 0; // oppdaterer sekkund verdien til 0 så det starter på 0 når jeg trykker start
+    clearInterval(stopper); // stopper intervallet 1000.
+    tid.innerHTML=sekunder; // putter inn tallet på siden i innerhtml på diven som har klokke id
+    
+}
+
+function pause(){ 
+    startet= false;
+    runde.innerHTML += `<li>${sekunder-1} sekunder </li>`; // oppretter en liste med siste verdien av sekunder
+    pausetid = sekunder;
+    clearInterval(stopper);
+}
+
+
+
+</script>
+
+
+<style>
+    
+</style>
+
+
+</html>

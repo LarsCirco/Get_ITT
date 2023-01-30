@@ -1,0 +1,43 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stoppeklokke</title></head><body><div class="wrapper">
+    <button class="clockButton" onclick="startTimer()">Start Timer!</button> 
+    <button class="clockButton" onclick="pauseTimer()">Pause</button>
+    <button class="clockButton" onclick="stopAll()">Stopp &Fjern</button><br>
+    <div id="app" class="clockDisplay"></div>  RUNDETIDER:<div id="lastRound" class="roundsList"> </div> <br>
+</div>
+
+    <script>
+        
+        const app = document.getElementById('app');
+        const roundTime = document.getElementById('lastRound');
+        let seconds = 0;
+        var timer;
+        console.log(seconds);
+        
+        
+        function startTimer(){
+         seconds = 0;
+         timer =  setInterval(countSeconds, 1000);
+        }
+
+        function countSeconds(){
+            
+            app.innerHTML = seconds;
+            seconds++;
+        }
+
+        function pauseTimer(){ 
+            roundTime.innerHTML += `<li>${seconds-1} sekunder</li>`;
+            cleaInrterval(timer);
+            seconds = 0;
+            
+        }
+
+        function stopAll(){
+            location.reload()
+        }
+
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<img id="mittbilde" onclick="addbilde('mittbilde')" class="style">
+
+<img id="mittbilde2"onclick="addbilde('mittbilde2')" class="style">
+
+<img onclick="addbilde2(This)" class="style">
+
+
+
+
+
+    <script>
+        
+
+
+
+        function addbilde(pictureid){
+            let picture= getPicIfElse();
+            document.getElementById(pictureid).src= picture;
+           
+
+        }
+       /*function addbilde2(element){
+            console.log(elem)
+            elem.src='shopping-lis.jpg'
+
+        }*/
+
+        function getPicIfElse(){
+            let numb = Math.floor(Math.random()*2)+1;
+            if (numb == 1){
+                return 'shopping-lis.jpg'
+            }else if(numb==2){
+                return 'canvaProject1.jpg'
+            }
+            
+        }
+
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <style>
+        .style{
+        height:150px;
+        width:150px;
+        box-shadow: 7px,5px,5px;}
+    </style>
+</body>
+</html>
