@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdjektivsHistorie</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="view"></div>
+<script>
+//model
+
+
+
+
+const app = document.getElementById('view');
+let nr1 = ">>___<<";
+let nr2 = ">>___<<";
+let nr3 = ">>___<<";
+let nr4 = ">>___<<";
+let nr5 = ">>___<<";
+let nr6 = ">>___<<";
+let nr7 = ">>___<<";
+let nr8 = ">>___<<";
+
+updateview()
+function updateview(){
+
+    let html = /*html*/ `
+<h1>Dette er min adjektiv historie</h1>
+<h2>Fyll inn adjektivene</h2>
+<div class="grid">
+<div id="hei">Once upon a time, there was a ${nr1} programmer named Lars.
+     Lars lived in a ${nr2} world where technology ruled
+      everything. One day, Lars was given an ${nr3} task:
+       to create a software, that could change the world. 
+       Lars worked ${nr4} every day and night to complete
+        the task. But one day, he stumbled upon a ${nr5}
+         bug that he couldn't solve. Lars didn't give up, he kept
+          trying to solve the problem and finally, after ${nr6}
+           days, he succeeded. The software was a huge success and 
+           Lars became ${nr7} famous. From that day on, Lars 
+           continued to use his ${nr8} skills to make the 
+           world a better place.
+</div><br>
+<div class="items4">
+<div  id="good" onclick="knapp(this)">good</div>
+<div  id="shitty" onclick="knapp(this)">shitty</div>
+<div  id="muddy" onclick="knapp(this)">muddy</div>
+<div  id="lovely" onclick="knapp(this)">lovely</div>
+</div>
+<div class="items5">
+<div  id="impossible" onclick="knapp(this)">impossible</div>
+<div  id="mad" onclick="knapp(this)">genius</div>
+<div  id="overtime" onclick="knapp(this)">overtime</div>
+<div  id="hard" onclick="knapp(this)">hard</div>
+</div>
+<div class="items6">
+<div id="magisk" onclick="knapp(this)">magical</div>
+<div id="irritert" onclick="knapp(this)">irritating</div>
+<div id="many" onclick="knapp(this)">many</div>
+<div id="few" onclick="knapp(this)">few</div>
+</div>
+<div class="items7">
+<div id="very" onclick="knapp(this)">very</div>
+<div id="superkraft" onclick="knapp(this)">super</div>
+<div id="progge" onclick="knapp(this)">programming</div>
+<div id="power" onclick="knapp(this)">superpower</div>
+</div></div>
+`
+
+app.innerHTML = html;
+
+}
+
+function knapp(ord){
+    
+    if (good == ord)
+    {nr1 = ord.innerHTML}
+    else if (shitty == ord)
+    {nr1 = ord.innerHTML}
+    if (muddy == ord)
+    {nr2 = ord.innerHTML}
+    else if (lovely == ord)
+    {nr2 = ord.innerHTML}
+    if (impossible == ord)
+    {nr3 = ord.innerHTML}
+    else if (mad == ord)
+    {nr3 = ord.innerHTML}
+    if (overtime == ord)
+    {nr4 = ord.innerHTML}
+    else if (hard == ord)
+    {nr4 = ord.innerHTML}
+    if (magisk == ord)
+    {nr5 = ord.innerHTML}
+    else if (irritert == ord)
+    {nr5 = ord.innerHTML}
+    if (many == ord)
+    {nr6 = ord.innerHTML}
+    else if (few == ord)
+    {nr6 = ord.innerHTML}
+    if (very == ord)
+    {nr7 = ord.innerHTML}
+    else if (superkraft == ord)
+    {nr7 = ord.innerHTML}
+    if (progge == ord)
+    {nr8 = ord.innerHTML}
+    else if (power == ord)
+    {nr8 = ord.innerHTML}
+    
+
+    updateview()
+
+}
+
+
+
+</script>
+    
+
+
+
+    
+</body>
+</html>

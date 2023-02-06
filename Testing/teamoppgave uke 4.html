@@ -7,75 +7,113 @@
     <title>Team4 teamoppgave uke4</title>
 </head>
 <body>
+<div id="app"></div>
     
-    
-<h1>Plante team4</h1>
 
-<div id="plant" class="Plant"></div>
-<div id="vann" class="Plant"></div>
-<div id="sol" class="plant"></div>
-<div id="vekst" class="Plant"></div>
-<div id="money"></div>
-
-
-
-    <br>
-    
-    <button onclick="vanneplante()">Vann</button>
-    <button onclick="veksthormon()">Gjødsel</button>
-    <button onclick="sunnyday()">Sol</button>
-<br><br><br><br><br><br><br><br>
-<button onclick ="Playgame()">Start Game</button>
-<button onclick ="Pausegame()">Pause Game</button>
     
     
     
 <script>
-let verdi1 = 30;
-let verdi2 = 40;
-let verdi3 = 50;
-let vann= document.getElementById('vann');
-let sol= document.getElementById('sol');
-let vekst= document.getElementById('vekst');
+//Model
+let verdi1 = 60;
+let verdi2 = 60;
+let verdi3 = 60;
 let trekker;
 let cashMoneyFlow;
 let cash = 100;
 
 // Globalt variabler: StartTid 
 
+//View
+
+updateView()
+updateView1()
+function updateView() {
+let view =/* html*/ `<h1>Plante team4</h1>
+<div id="plant" class="Plant"></div>
+<br>
+
+    <button onclick="vanneplante('vann')">Vann</button>
+    <button onclick="vanneplante('vekst')">Gjødsel</button>
+    <button onclick="vanneplante('sol')">Sol</button>
+
+    <br><br><br><br><br><br><br><br>
+
+    <button onclick ="Playgame()">Start Game</button>
+    <button onclick ="Pausegame()">Pause Game</button>
+    <button onclick ="resetGame()">Reset Game</button>`
+
+document.getElementById('app').innerHTML=view;
+}
+function updateView1() {
+let view =/* html*/ `
+
+
+<div id="vann" class="Plant">plant >>> ${verdi1}</div>
+<br>
+<div id="sol" class="plant">plant >>> ${verdi2}</div>
+<br>
+<div id="vekst" class="Plant">plant >>> ${verdi3}</div>
+<div id="money">$$$ CashMoneyFlow >>> ${cash}</div>`
+document.getElementById('plant').innerHTML = view;}
+
+
+
+
+
+
+
+
+//controller
+
 function Playgame(){
-    trekker = setInterval(TrekkerIFraSekunder,800);
-    cashMoneyFlow = setInterval(valuta,300);
+    trekker = setInterval(TrekkerIFraSekunder,250);
+    cashMoneyFlow = setInterval(valuta,320);
+    
 
 }
 function TrekkerIFraSekunder(){
-    vann.innerHTML = 'vann >>>  =  '  + verdi1;
-    sol.innerHTML = 'gjødsel >>>  = '  + verdi2;
-    vekst.innerHTML = 'sol >>> =  '  + verdi3;
-    verdi--;
     verdi1--;
     verdi2--;
+    verdi3--;
+    updateView1()
 }
 function Pausegame(){
     clearInterval(trekker);
+    clearInterval(cashMoneyFlow);
+    updateView1()
 
 }
-function vanneplante(){
-    verdi1++; 
+function vanneplante(Parameter){
+    if(Parameter == 'vann')
+    {   cash-=5
+        verdi1++;  }
+    else if(Parameter == 'vekst')
+    {   cash-=5
+        verdi2++;  }
+    else if(Parameter == 'sol')
+    {   cash-=5
+        verdi3++;  }
+    updateView1()
 }
-function veksthormon(){
-    verdi2++;
-    cash -= 2;
+
+
+function valuta (){
+    cash+=3;
+    updateView1()
+}
+
+function resetGame(){
+    verdi1 = 60;
+    verdi2 = 60;
+    verdi3 = 60;
+    cash = 100;
+    clearInterval(trekker);
+    clearInterval(cashMoneyFlow);
+    updateView1()
     
 }
-function sunnyday(){
-    verdi3++;
-}
-function valuta (){
 
-    cash+=3;
-    document.getElementById('money').innerHTML = `Cash >>> ${cash} `;
-}
 </script>
 
 

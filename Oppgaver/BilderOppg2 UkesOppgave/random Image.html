@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yo, Få ett bilde da</title>
+</head>
+<body>
+<div id="app"></div>
+
+<div class="container bilde">
+<img src="" class="bilde-1" id="bilde-1" onclick="show(this)">
+<img src="" class="bilde-2" id="bilde-2" onclick="show(this)">
+<img src="" class="bilde-3"  onclick="show(this)">
+<div class="output1" id="SkrivUt1"></div>
+<div class="output2" id="SkrivUt2"></div>
+<div class="output3" id="SkrivUt3"></div>
+<div class="arrow">↕</div>
+<div class="arrow2">↕</div>
+<div class="arrow3">↕</div>
+</div>
+
+
+
+<script>
+function randomBilde(){
+let random = Math.floor((Math.random() * 8)+1)
+if (random == 1)
+{ return "Tom.jpg";}
+if (random == 2)
+{ return "tom1.jpg";}
+if (random == 3)
+{ return "tom3.jpg";}
+if (random == 4)
+{ return "tom4.jpg";}
+if (random == 5)
+{ return "tom5.jpg";}
+if (random == 6)
+{ return "tom6.jpg";}
+if (random == 7)
+{ return "tom7.jpg";}
+else{ return "tom8.jpg";}
+
+}
+function show(kilde){
+    let navn = randomBilde();
+    
+ kilde.src  = navn; // kilde = <img src="" class="bilde-3" id="bilde-3" onclick="show(this)">
+ if (kilde.className === 'bilde-1') {
+    document.getElementById('SkrivUt1').innerHTML =   ' navnet på bilde er ' + navn;
+  } else if (kilde.className === 'bilde-2') {
+    document.getElementById('SkrivUt2').innerHTML =   ' navnet på bilde er ' + navn;
+  } else {
+    document.getElementById('SkrivUt3').innerHTML =  ' navnet på bilde er ' + navn;
+  }
+
+}
+
+
+</script>
+
+<style>
+.container{
+margin: 0 auto;
+display: grid;
+height: 100%;
+width:100%;
+border:solid;
+grid-template-areas: 
+"a b c"
+"p1 p2 p3"
+"j k l"
+"1 2 3"
+"1 2 3";
+}
+
+.bilde-1{
+    grid-area: a;
+    height: 300px;
+    width: 223px;
+    border: solid;
+    border-color: slateblue;
+    
+
+}
+.bilde-2{
+    grid-area: b;
+    width: 223px;
+    height: 300px;
+    border: solid;
+    border-color: slateblue;
+    align-self: center;
+}
+.bilde-3{
+    grid-area: c;
+    width: 223px;
+    height: 300px;
+    border: solid;
+    border-color: slateblue;
+    align-self: center;
+
+}
+.output1{
+    font-size: 30px;
+    grid-area:j;
+    border:solid; 
+
+    
+    
+}
+.output2{
+    font-size: 30px;
+    grid-area:k;
+    border:solid; 
+
+    
+    
+}
+.output3{
+    font-size: 30px;
+    grid-area:l;
+    border:solid; 
+}
+.arrow{
+    width: 223px;
+    grid-area: p1;
+    font-size: 100px;
+    text-align: center;
+    
+
+}
+.arrow2{
+    width: 223px;
+    grid-area:  p2;
+    font-size: 100px;
+    text-align: center;
+
+}
+.arrow3{
+    width: 223px;
+    grid-area: p3;
+    font-size: 100px;
+    text-align: center;
+}
+
+
+
+
+</style>
+
+</body>
+
+</html>
