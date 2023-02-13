@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="app"></div>
+
+
+
+
+
+
+
+
+<script>
+    
+    let list = ['Martin'];
+let 
+    updateview()
+
+    function updateview() {
+
+        let html = /*html*/ `
+
+        <input type="text" onchange="addname(this.value)">
+        <button onclick="kastunderbussen()"> kastunderbussen </button>
+        <div>vinner = ${list[rand]}</div>
+
+        
+        `
+        for(let i = 0; i<list.length; i++)
+        {html += `<li>${list[i]}</li>`; }
+
+        document.getElementById('app').innerHTML = html;
+    }
+
+
+    function addname(name){
+        list.push(name);
+        updateview();
+    }
+   function kastunderbussen(){
+   let rand = Math.floor(Math.random()* list.length);
+    list.splice(rand,1);
+     list[rand];
+    updateview();
+   }
+
+</script>
+
+    
+</body>
+</html>

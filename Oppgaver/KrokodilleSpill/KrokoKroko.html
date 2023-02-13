@@ -28,7 +28,18 @@ document.getElementById('view').innerHTML=html;
 }
 function spill(operator){
     console.log(operator);
-    if (operator == '<' ){
+    if (tall1>tall2 && operator === '>')
+        {score++}
+else if (tall1<tall2 && operator === '<')
+        {score++}
+else    {score--}
+    
+
+/*if(operator == '<' && tall1 < tall2 || operator == '>' && tall1>tall2)
+    {score++}
+    else{score--}*/ // to alternativer å skrivve det på
+
+/*if(operator == '<'){
         if(tall1 < tall2)
         {score++}
         else {score--}
@@ -37,7 +48,8 @@ function spill(operator){
         if(tall1>tall2)
         {score++}
         else {score--}
-    }
+    }*/
+    
 
 randomtall()
 updateview();}

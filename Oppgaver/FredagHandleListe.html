@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+    </style>
+
+    <div id="app"></div>
+    
+    <script>
+
+        let varer=['Melk'];
+        let ifCheckedVarer = [];
+        let navn;
+
+        showview()
+            function showview(){
+            let html = /*html*/
+            `
+            <div class="liste"></div>
+            <button onclick="hide()">hide</button>
+            <input oninput="navn-this.value"onchange="LeggTilTekst(this.value)">
+            <button onclick="fjernvare()">fjernvare</button>
+            <button onclick="endrenavn()">Endre Navn</button>
+            `
+           
+            for(let i=0;i<varer.length;i++)
+            {html+=`<div class="hide"><input id="vare-${i}" type="checkbox" onclick="BoksHuketAv(${i})">
+            ${varer[i]}</div>`}
+            document.getElementById('app').innerHTML=html;
+            }
+
+
+        function LeggTilTekst(VareNavn)
+        {varer.push(VareNavn)
+        showview()}
+        function BoksHuketAv(id){
+            if (ifCheckedVarer.includes(id)){
+                ifCheckedVarer = ifCheckedVarer.filter(i => i !== id);
+            }
+            else{ifCheckedVarer.push(id)}
+        }
+
+        function fjernvare(){
+            for (let i = varer.length - 1; i >= 0; i--) { //må gå igjennom arraye baklengs eller så kan det hende koden skipper noen elementer hvis flere ting er huket av, siden rekkefølgen på indexen oppdaterer seg for hver loop interasjon, men hvis vi fjerner bakerst til start så blir ikke indexen endret for vær interasjon.
+                if (ifCheckedVarer.includes(i)) {
+            varer.splice(i, 1);
+        }
+    }
+        ifCheckedVarer=[];
+        showview();
+}
+        function endrenavn(){
+            if (ifCheckedVarer.length !== 1)
+            {alert('Du kan kunn huke av en boks når du skal endre navn')
+        return;}
+        let pil = ifCheckedVarer[0];
+        let nyttnavn = prompt('nytt navn:');
+        varer[pil] = nyttnavn;
+
+        ifCheckedVarer = [];
+        showview();
+        }
+       
+            
+            
+        
+        </script>
+</body>
+</html>
